@@ -6,6 +6,7 @@ class Api::V1::StudentsController < ApplicationController
     @students = Student.all
 
     render json: @students
+    # render :show
   end
 
   # GET /students/1
@@ -42,7 +43,7 @@ class Api::V1::StudentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_student
-      @student = Student.find(params[:id])
+      @student = Student.find(params[:user])
     end
 
     # Only allow a list of trusted parameters through.

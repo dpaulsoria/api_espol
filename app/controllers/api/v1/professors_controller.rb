@@ -42,7 +42,7 @@ class Api::V1::ProfessorsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_professor
-      @professor = Professor.find(params[:id])
+      @professor = Professor.find(params[:user])
     end
 
     # Only allow a list of trusted parameters through.

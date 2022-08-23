@@ -1,0 +1,362 @@
+Use Ctrl-C to stop
+Started GET "/api/v1/courses" for ::1 at 2022-08-22 20:59:49 -0500
+   (1.6ms)  SELECT sqlite_version(*)
+  ActiveRecord::SchemaMigration Pluck (0.3ms)  SELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC
+Processing by Api::V1::CoursesController#index as HTML
+  Course Load (0.9ms)  SELECT "courses".* FROM "courses"
+  ↳ app/controllers/api/v1/courses_controller.rb:8:in `index'
+Completed 200 OK in 55ms (Views: 2.3ms | ActiveRecord: 0.9ms | Allocations: 4601)
+
+Started GET "/favicon.ico" for ::1 at 2022-08-22 20:59:49 -0500
+
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+
+Started GET "/api/v1/students" for ::1 at 2022-08-22 21:07:43 -0500
+Processing by Api::V1::StudentsController#index as JSON
+   (0.1ms)  SELECT sqlite_version(*)
+  ↳ app/controllers/api/v1/students_controller.rb:8:in `index'
+  Student Load (0.5ms)  SELECT "students".* FROM "students"
+  ↳ app/controllers/api/v1/students_controller.rb:8:in `index'
+Completed 200 OK in 13ms (Views: 5.3ms | ActiveRecord: 1.1ms | Allocations: 2437)
+
+
+Started GET "/api/v1/student/1" for ::1 at 2022-08-22 21:07:47 -0500
+
+ActionController::RoutingError (No route matches [GET] "/api/v1/student/1"):
+
+Started GET "/api/v1/students/1" for ::1 at 2022-08-22 21:07:52 -0500
+Processing by Api::V1::StudentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  Student Load (0.3ms)  SELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?  [["id"
+?  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/students_controller.rb:45:in `set_student'
+Completed 404 Not Found in 8ms (ActiveRecord: 1.6ms | Allocations: 2273)
+
+
+
+ActiveRecord::RecordNotFound (Couldn't find Student with 'id'=1):
+
+app/controllers/api/v1/students_controller.rb:45:in `set_student'
+Started GET "/api/v1/student/1" for ::1 at 2022-08-22 21:08:04 -0500
+
+ActionController::RoutingError (No route matches [GET] "/api/v1/student/1"):
+
+Started GET "/api/v1/students/1" for ::1 at 2022-08-22 21:08:35 -0500
+Processing by Api::V1::StudentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  Student Load (0.3ms)  SELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?  [["id"
+?  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/students_controller.rb:45:in `set_student'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.3ms | Allocations: 543)
+
+
+
+ActiveRecord::RecordNotFound (Couldn't find Student with 'id'=1):
+
+app/controllers/api/v1/students_controller.rb:45:in `set_student'
+- Gracefully stopping, waiting for requests to finish
+=== puma shutdown: 2022-08-22 21:16:09 -0500 ===
+- Goodbye!
+Exiting
+Terminate batch job (Y/N)? y
+PS C:\Users\danny\Desktop\rb\api_espol> rails server
+=> Booting Puma
+=> Rails 7.0.3.1 application starting in development
+=> Run `bin/rails server --help` for more startup options
+*** SIGUSR2 not implemented, signal based restart unavailable!
+*** SIGUSR1 not implemented, signal based restart unavailable!
+*** SIGHUP not implemented, signal based logs reopening unavailable!
+Puma starting in single mode...
+* Puma version: 5.6.4 (ruby 3.1.2-p20) ("Birdie's Version")
+*  Min threads: 5
+*  Max threads: 5
+*  Environment: development
+*          PID: 8980
+* Listening on http://[::1]:3000
+* Listening on http://127.0.0.1:3000
+Use Ctrl-C to stop
+Started GET "/api/v1/students/:id" for ::1 at 2022-08-22 21:17:36 -0500
+   (2.2ms)  SELECT sqlite_version(*)
+  ActiveRecord::SchemaMigration Pluck (0.3ms)  SELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC
+Processing by Api::V1::StudentsController#show as JSON
+  Parameters: {"id"=>":id"}
+  Student Load (0.3ms)  SELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT 
+?  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/students_controller.rb:45:in `set_student'
+Completed 404 Not Found in 14ms (ActiveRecord: 1.6ms | Allocations: 3142)
+
+
+
+ActiveRecord::RecordNotFound (Couldn't find Student with 'id'=:id):
+
+app/controllers/api/v1/students_controller.rb:45:in `set_student'
+Started PATCH "/api/v1/students/:id" for ::1 at 2022-08-22 21:25:57 -0500
+   (0.1ms)  SELECT sqlite_version(*)
+Processing by Api::V1::StudentsController#update as JSON
+  Parameters: {"user"=>"dsoria", "name"=>"Danny Paul Soria Muñoz", "credits"=>0, "passwrd"=>"[FILTERED]", "class_schedule"=>"{}", "exam_schedule"=>"{}", "id"=>":id", "student"=>{"user"=>"dsoria", "name"=>"Danny Paul Soria Muñoz", "credits"=>0, "passwrd"=>"[FILTERED]", "class_schedule"=>"{}", "exam_schedule"=>"{}"}}
+  Student Load (0.3ms)  SELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT 
+?  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/students_controller.rb:45:in `set_student'
+Completed 404 Not Found in 2ms (ActiveRecord: 1.3ms | Allocations: 588)
+
+
+
+ActiveRecord::RecordNotFound (Couldn't find Student with 'id'=:id):
+
+app/controllers/api/v1/students_controller.rb:45:in `set_student'
+Started POST "/api/v1/students/:id" for ::1 at 2022-08-22 21:26:10 -0500
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/students/:id"):
+
+Started GET "/api/v1/students/1" for ::1 at 2022-08-22 21:26:27 -0500
+Processing by Api::V1::StudentsController#show as JSON
+  Parameters: {"id"=>"1"}
+  Student Load (0.3ms)  SELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT 
+?  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/students_controller.rb:45:in `set_student'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.3ms | Allocations: 560)
+
+
+
+ActiveRecord::RecordNotFound (Couldn't find Student with 'id'=1):
+
+app/controllers/api/v1/students_controller.rb:45:in `set_student'
+Started GET "/api/v1/students/dsoria" for ::1 at 2022-08-22 21:26:36 -0500
+Processing by Api::V1::StudentsController#show as JSON
+  Parameters: {"id"=>"dsoria"}
+  Student Load (0.2ms)  SELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT 
+?  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/students_controller.rb:45:in `set_student'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms | Allocations: 538)
+
+
+
+ActiveRecord::RecordNotFound (Couldn't find Student with 'id'=dsoria):
+
+app/controllers/api/v1/students_controller.rb:45:in `set_student'
+Started GET "/api/v1/professors" for ::1 at 2022-08-22 21:29:55 -0500
+Processing by Api::V1::ProfessorsController#index as JSON
+  Professor Load (0.7ms)  SELECT "professors".* FROM "professors"
+  ↳ app/controllers/api/v1/professors_controller.rb:8:in `index'
+Completed 200 OK in 13ms (Views: 2.9ms | ActiveRecord: 0.7ms | Allocations: 1526)
+
+
+Started POST "/api/v1/professors" for ::1 at 2022-08-22 21:31:01 -0500
+Processing by Api::V1::ProfessorsController#create as JSON
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 185)
+
+
+
+ActionController::ParameterMissing (param is missing or the value is empty: professor):     
+
+app/controllers/api/v1/professors_controller.rb:50:in `professor_params'
+app/controllers/api/v1/professors_controller.rb:19:in `create'
+Started POST "/api/v1/students" for ::1 at 2022-08-22 21:32:51 -0500
+Processing by Api::V1::StudentsController#create as JSON
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 127)
+
+
+
+ActionController::ParameterMissing (param is missing or the value is empty: student):       
+
+app/controllers/api/v1/students_controller.rb:50:in `student_params'
+app/controllers/api/v1/students_controller.rb:19:in `create'
+Started GET "/api/v1/students" for ::1 at 2022-08-22 21:33:28 -0500
+Processing by Api::V1::StudentsController#index as JSON
+  Student Load (0.3ms)  SELECT "students".* FROM "students"
+  ↳ app/controllers/api/v1/students_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.3ms | Allocations: 746)
+
+
+Started POST "/api/v1/students" for ::1 at 2022-08-22 21:34:23 -0500
+Processing by Api::V1::StudentsController#create as JSON
+  Parameters: {"user"=>"dsoria", "name"=>"Danny Paul Soria Muñoz", "credits"=>0, "passwrd"=>"[FILTERED]", "class_schedule"=>"{}", "exam_schedule"=>"{}", "student"=>{"user"=>"dsoria", "name"=>"Danny Paul Soria Muñoz", "credits"=>0, "passwrd"=>"[FILTERED]", "class_schedule"=>"{}", "exam_schedule"=>"{}"}}
+  TRANSACTION (0.1ms)  begin transaction
+  ↳ app/controllers/api/v1/students_controller.rb:21:in `create'
+  Student Create (3.2ms)  INSERT INTO "students" ("user", "name", "credits", "passwrd", "class_schedule", "exam_schedule", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["user", "dsoria"], ["name", "Danny Paul Soria Muñoz"], ["credits", 0], ["passwrd", "[FILTERED]"], ["class_schedule", "{}"], ["exam_schedule", "{}"], ["created_at", "2022-08-23 02:34:23.281422"], ["updated_at", "2022-08-23 02:34:23.281422"]]
+  ↳ app/controllers/api/v1/students_controller.rb:21:in `create'
+  TRANSACTION (3.8ms)  commit transaction
+  ↳ app/controllers/api/v1/students_controller.rb:21:in `create'
+Completed 500 Internal Server Error in 102ms (ActiveRecord: 7.1ms | Allocations: 12632)
+
+
+
+NoMethodError (undefined method `student_url' for #<Api::V1::StudentsController:0x0000000000a118>
+              target.public_send(method, *args)
+                    ^^^^^^^^^^^^):
+
+app/controllers/api/v1/students_controller.rb:22:in `create'
+Started POST "/api/v1/students" for ::1 at 2022-08-22 21:36:47 -0500
+Processing by Api::V1::StudentsController#create as JSON
+  Parameters: {"user"=>"dsoria", "name"=>"Danny Paul Soria Muñoz", "credits"=>0, "passwrd"=>"[FILTERED]", "class_schedule"=>"{}", "exam_schedule"=>"{}", "student"=>{"user"=>"dsoria", "name"=>"Danny Paul Soria Muñoz", "credits"=>0, "passwrd"=>"[FILTERED]", "class_schedule"=>"{}", "exam_schedule"=>"{}"}}
+  TRANSACTION (0.1ms)  begin transaction
+  ↳ app/controllers/api/v1/students_controller.rb:21:in `create'
+  Student Create (1.6ms)  INSERT INTO "students" ("user", "name", "credits", "passwrd", "class_schedule", "exam_schedule", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["user", "dsoria"], ["name", "Danny Paul Soria Muñoz"], ["credits", 0], ["passwrd", "[FILTERED]"], ["class_schedule", "{}"], ["exam_schedule", "{}"], ["created_at", "2022-08-23 02:36:47.783624"], ["updated_at", "2022-08-23 02:36:47.783624"]]
+  ↳ app/controllers/api/v1/students_controller.rb:21:in `create'
+  TRANSACTION (0.1ms)  rollback transaction
+  ↳ app/controllers/api/v1/students_controller.rb:21:in `create'
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 1.8ms | Allocations: 2119)
+
+
+
+ActiveRecord::RecordNotUnique (SQLite3::ConstraintException: UNIQUE constraint failed: students.user):
+
+app/controllers/api/v1/students_controller.rb:21:in `create'
+Started DELETE "/api/v1/students/dsoria" for ::1 at 2022-08-22 22:09:52 -0500
+Processing by Api::V1::StudentsController#destroy as JSON
+  ↳ app/controllers/api/v1/students_controller.rb:45:in `set_student'
+  Student Load (0.4ms)  SELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT 
+?  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/students_controller.rb:45:in `set_student'                       ?  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 5ms (ActiveRecord: 0.9ms | Allocations: 1150)
+
+
+
+ActiveRecord::RecordNotFound (Couldn't find Student with 'id'=dsoria):
+
+app/controllers/api/v1/students_controller.rb:45:in `set_student'
+Started DELETE "/api/v1/students/dsoria" for ::1 at 2022-08-22 22:11:12 -0500
+Processing by Api::V1::StudentsController#destroy as JSON
+  Parameters: {"id"=>"dsoria"}
+   (0.1ms)  SELECT sqlite_version(*)
+  ↳ app/controllers/api/v1/students_controller.rb:45:in `set_student'
+Completed 404 Not Found in 9ms (ActiveRecord: 1.4ms | Allocations: 1743)
+
+
+
+ActiveRecord::RecordNotFound (Couldn't find Student without an ID):
+
+app/controllers/api/v1/students_controller.rb:45:in `set_student'
+- Gracefully stopping, waiting for requests to finish
+=== puma shutdown: 2022-08-22 22:11:23 -0500 ===
+- Goodbye!
+Exiting
+Terminate batch job (Y/N)? y
+PS C:\Users\danny\Desktop\rb\api_espol> rails server
+=> Booting Puma
+=> Rails 7.0.3.1 application starting in development
+=> Run `bin/rails server --help` for more startup options
+*** SIGUSR2 not implemented, signal based restart unavailable!
+*** SIGUSR1 not implemented, signal based restart unavailable!
+*** SIGHUP not implemented, signal based logs reopening unavailable!
+Puma starting in single mode...
+* Puma version: 5.6.4 (ruby 3.1.2-p20) ("Birdie's Version")
+*  Min threads: 5
+*  Max threads: 5
+*  Environment: development
+*          PID: 10604
+* Listening on http://[::1]:3000
+* Listening on http://127.0.0.1:3000
+Use Ctrl-C to stop
+Started GET "/api/v1/students" for ::1 at 2022-08-22 22:11:38 -0500
+   (4.7ms)  SELECT sqlite_version(*)
+  ActiveRecord::SchemaMigration Pluck (1.0ms)  SELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC                                 hema_migrations" ORDER BY "schema_migrations"."version" ASC
+Processing by Api::V1::StudentsController#index as JSON
+  Student Load (0.8ms)  SELECT "students".* FROM "students"
+  ↳ app/controllers/api/v1/students_controller.rb:8:in `index'
+Completed 200 OK in 40ms (Views: 27.1ms | ActiveRecord: 4.0ms | Allocations: 7585)
+
+
+Started GET "/api/v1/students/dsoria" for ::1 at 2022-08-22 22:11:58 -0500
+Processing by Api::V1::StudentsController#show as JSON
+  Parameters: {"id"=>"dsoria"}
+Completed 404 Not Found in 182ms (ActiveRecord: 0.0ms | Allocations: 3048)
+
+
+
+ActiveRecord::RecordNotFound (Couldn't find Student without an ID):
+
+app/controllers/api/v1/students_controller.rb:45:in `set_student'
+Started GET "/api/v1/students" for ::1 at 2022-08-22 22:12:05 -0500
+Processing by Api::V1::StudentsController#index as JSON
+  Student Load (0.6ms)  SELECT "students".* FROM "students"
+  ↳ app/controllers/api/v1/students_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.6ms | Allocations: 965)
+
+
+Started GET "/api/v1/students" for ::1 at 2022-08-22 22:14:44 -0500
+Processing by Api::V1::StudentsController#index as JSON
+  Rendering api/v1/students/show.json.jbuilder
+  Rendered api/v1/students/show.json.jbuilder (Duration: 10.5ms | Allocations: 1833)        
+Completed 500 Internal Server Error in 31ms (Allocations: 4310)
+
+
+
+ActionView::Template::Error (undefined method `user' for nil:NilClass):
+    1: # json.data do
+    2: #     json.student do
+    3:         json.user @student.user
+    4:         json.name @student.name
+    5:         json.credits @student.credits
+    6:         json.class_schedule @student.class_schedule
+
+app/views/api/v1/students/show.json.jbuilder:3
+app/controllers/api/v1/students_controller.rb:9:in `index'
+Started GET "/api/v1/students" for ::1 at 2022-08-22 22:14:57 -0500
+Processing by Api::V1::StudentsController#index as JSON
+   (0.1ms)  SELECT sqlite_version(*)
+  ↳ app/controllers/api/v1/students_controller.rb:8:in `index'
+  Student Load (0.3ms)  SELECT "students".* FROM "students"
+  ↳ app/controllers/api/v1/students_controller.rb:8:in `index'
+Completed 200 OK in 14ms (Views: 9.7ms | ActiveRecord: 2.5ms | Allocations: 4843)
+
+
+Started GET "/api/v1/students" for ::1 at 2022-08-22 22:28:20 -0500
+Processing by Api::V1::StudentsController#index as JSON
+   (0.1ms)  SELECT sqlite_version(*)
+  ↳ app/controllers/api/v1/students_controller.rb:8:in `index'
+  Student Load (0.8ms)  SELECT "students".* FROM "students"
+  ↳ app/controllers/api/v1/students_controller.rb:8:in `index'
+Completed 200 OK in 81ms (Views: 80.7ms | ActiveRecord: 4.7ms | Allocations: 1536)
+
+
+Started GET "/api/v1/students" for ::1 at 2022-08-22 22:29:30 -0500
+Processing by Api::V1::StudentsController#index as JSON
+  Student Load (0.3ms)  SELECT "students".* FROM "students"
+  ↳ app/controllers/api/v1/students_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.3ms | Allocations: 857)
+
+
+Started DELETE "/api/v1/students/dsoria" for ::1 at 2022-08-22 22:34:31 -0500
+Processing by Api::V1::StudentsController#destroy as JSON
+  Parameters: {"id"=>"dsoria"}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms | Allocations: 152)
+
+
+
+ActiveRecord::RecordNotFound (Couldn't find Student without an ID):
+
+app/controllers/api/v1/students_controller.rb:46:in `set_student'
+Started GET "/api/v1/students" for ::1 at 2022-08-22 22:34:35 -0500
+Processing by Api::V1::StudentsController#index as JSON
+  Student Load (0.3ms)  SELECT "students".* FROM "students"
+  ↳ app/controllers/api/v1/students_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.3ms | Allocations: 845)
+
+
+Started POST "/api/v1/professors" for ::1 at 2022-08-22 22:36:31 -0500
+Processing by Api::V1::ProfessorsController#create as JSON
+  Parameters: {"user"=>"johndoe", "name"=>"John Doe", "rank"=>9.9, "passwrd"=>"[FILTERED]", 
+"courses"=>"{}", "professor"=>{"user"=>"johndoe", "name"=>"John Doe", "rank"=>9.9, "courses"=>"{}"}}
+  TRANSACTION (0.1ms)  begin transaction
+  ↳ app/controllers/api/v1/professors_controller.rb:21:in `create'
+  Professor Create (1.7ms)  INSERT INTO "professors" ("user", "name", "rank", "passwd", "courses", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["user", "johndoe"], ["name", "John Doe"], ["rank", 9.9], ["passwd", "[FILTERED]"], ["courses", "{}"], ["created_at", 
+"2022-08-23 03:36:31.633692"], ["updated_at", "2022-08-23 03:36:31.633692"]]
+  ↳ app/controllers/api/v1/professors_controller.rb:21:in `create'
+  TRANSACTION (4.6ms)  commit transaction
+  ↳ app/controllers/api/v1/professors_controller.rb:21:in `create'
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 7.9ms | Allocations: 8200)       
+
+
+
+NoMethodError (undefined method `professor_url' for #<Api::V1::ProfessorsController:0x00000000013718>
+
+              target.public_send(method, *args)
+                    ^^^^^^^^^^^^):
+
+app/controllers/api/v1/professors_controller.rb:22:in `create'
+Started GET "/api/v1/professors" for ::1 at 2022-08-22 22:36:37 -0500
+Processing by Api::V1::ProfessorsController#index as JSON
+  Professor Load (0.3ms)  SELECT "professors".* FROM "professors"
+  ↳ app/controllers/api/v1/professors_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.3ms | Allocations: 1060)
