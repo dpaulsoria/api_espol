@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_23_015543) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_23_015640) do
+  create_table "courses", force: :cascade do |t|
+    t.string "code"
+    t.string "name"
+    t.integer "credits"
+    t.integer "par"
+    t.string "aula"
+    t.string "mode"
+    t.string "campus"
+    t.string "class_schedule"
+    t.string "exam_schedule"
+    t.string "professor"
+    t.integer "max_capacity"
+    t.integer "current_capacity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["code"], name: "index_courses_on_code", unique: true
+  end
+
   create_table "professors", force: :cascade do |t|
     t.string "user"
     t.string "name"
