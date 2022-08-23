@@ -10,7 +10,8 @@ class Api::V1::ProfessorsController < ApplicationController
 
   # GET /professors/1
   def show
-    render json: @professor
+    # render json: @professor
+    render :show
   end
 
   # POST /professors
