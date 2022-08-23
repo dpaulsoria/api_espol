@@ -1,4 +1,4 @@
-class ProfessorsController < ApplicationController
+class Api::V1::ProfessorsController < ApplicationController
   before_action :set_professor, only: %i[ show update destroy ]
 
   # GET /professors

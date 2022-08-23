@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  resources :courses
-  resources :professors
-  resources :students
+
+  namespace :api do
+    namespace :v1 do
+      resources :courses
+      resources :professors
+      resources :students
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
