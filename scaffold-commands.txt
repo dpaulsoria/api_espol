@@ -1,0 +1,5 @@
+rails g scaffold Student user:string:uniq email:string:uniq name:string credits:integer passwrd:string class_schedule:string exam_schedule:string
+
+rails g scaffold Professor user:string:uniq email:string:uniq name:string rank:decimal passwd:string courses:string
+
+rails g scaffold Course code:string:uniq name:string credits:integer par:integer aula:string mode:string campus:string class_schedule:string exam_schedule:string professor:string max_capacity:integer current_capacity:integer
