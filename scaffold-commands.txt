@@ -1,4 +1,4 @@
-rails g scaffold Student matricula:string:uniq ise:integer etnico:string sancion:string prom_gen_apro:integer credits_vinculacion:integer user:string:uniq email:string:uniq name:string credits:integer passwrd:string class_schedule:string exam_schedule:string
+rails g scaffold Student matricula:string:uniq ise:integer etnico:string sancion:string prom_gen_apro:decimal credits_vinculacion:integer user:string:uniq email:string:uniq name:string credits:integer passwrd:string class_schedule:string exam_schedule:string
 
 rails g scaffold Professor user:string:uniq email:string:uniq name:string rank:decimal passwd:string courses:string
 

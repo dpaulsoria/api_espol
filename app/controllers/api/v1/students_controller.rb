@@ -16,6 +16,7 @@ class Api::V1::StudentsController < ApplicationController
   # POST /students
   def create
     @student = Student.new(student_params)
+
     if @student.save
       render json: @student, status: :created, location: @student
     else
@@ -40,7 +41,7 @@ class Api::V1::StudentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_student
-      # @student = Student.find(params[:id])
+      # @student = Student.find(params[:id])      
       @student = Student.find_by(user: params[:user])
     end
 
