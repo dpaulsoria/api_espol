@@ -5,12 +5,12 @@ class Api::V1::ProfessorsController < ApplicationController
   def index
     @professors = Professor.all
 
-    render json: @professors
+    render json: @professors.to_json(only: [:user, :email, :name, :rank, :courses])
   end
 
   # GET /professors/1
   def show
-    render json: @professor
+    render json: @professor.to_json(only: [:user, :email, :name, :rank, :courses])
   end
 
   # POST /professors
@@ -41,7 +41,8 @@ class Api::V1::ProfessorsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_professor
-      @professor = Professor.find(params[:id])
+      # @professor = Professor.find(params[:id])
+      @professor = Professor.find_by(user: params[:user])
     end
 
     # Only allow a list of trusted parameters through.

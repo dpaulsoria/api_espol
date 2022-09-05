@@ -41,7 +41,8 @@ class Api::V1::CoursesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_course
-      @course = Course.find(params[:id])
+      # @course = Course.find(params[:id])
+      @course = Course.find_by(code: params[:code])
     end
 
     # Only allow a list of trusted parameters through.
