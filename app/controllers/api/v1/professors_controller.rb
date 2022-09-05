@@ -5,12 +5,12 @@ class Api::V1::ProfessorsController < ApplicationController
   def index
     @professors = Professor.all
 
-    render json: @professors.to_json(only: [:user, :email, :name, :rank, :courses])
+    render json: @professors.to_json(only: [:user, :email, :passwd, :name, :rank, :courses])
   end
 
   # GET /professors/1
   def show
-    render json: @professor.to_json(only: [:user, :email, :name, :rank, :courses])
+    render json: @professor.to_json(only: [:user, :email, :passwd, :name, :rank, :courses])
   end
 
   # POST /professors
@@ -47,6 +47,6 @@ class Api::V1::ProfessorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def professor_params
-      params.require(:professor).permit(:user, :email, :name, :rank, :passwd, :courses)
+      params.require(:professor).permit(:user, :email, :name, :passwd,  :rank, :passwd, :courses)
     end
 end

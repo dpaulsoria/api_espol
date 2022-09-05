@@ -5,13 +5,13 @@ class Api::V1::StudentsController < ApplicationController
   def index
     @students = Student.all
 
-    render json: @students.to_json(only: [:user, :email, :name, :credits, :class_schedule, :exam_schedule])
+    render json: @students.to_json(only: [:user, :email, :name, :credits, :passwd, :class_schedule, :exam_schedule])
   end
 
   # GET /students/1
   def show
     # @student = Student.find_by(user: params[:user])
-    render json: @student.to_json(only: [:user, :email, :name, :credits, :class_schedule, :exam_schedule])
+    render json: @student.to_json(only: [:user, :email, :name, :credits, :passwd, :class_schedule, :exam_schedule])
   end
 
   # POST /students
