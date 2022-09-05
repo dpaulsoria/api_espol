@@ -5,12 +5,13 @@ class Api::V1::StudentsController < ApplicationController
   def index
     @students = Student.all
 
-    render json: @students
+    render json: @students.to_json(only: [:user, :email, :name, :credits, :class_schedule, :exam_schedule])
   end
 
   # GET /students/1
   def show
-    render json: @student
+    # @student = Student.find_by(user: params[:user])
+    render json: @student.to_json(only: [:user, :email, :name, :credits, :class_schedule, :exam_schedule])
   end
 
   # POST /students
@@ -40,7 +41,9 @@ class Api::V1::StudentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_student
-      @student = Student.find(params[:id])
+      # @student = Student.find(user: params[:user])
+      @student = Student.find_by(user: params[:user])
+      # @student = Student.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
